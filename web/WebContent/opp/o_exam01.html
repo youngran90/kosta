@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	//객체생성 3가지 방법
+	//1.object 객체 2. 리터럴형식 3.생성자 함수
+	
+	//1.
+	var foo = new Object();  //내장객체, object 최상위 객체
+	foo.name = "홍길동";
+	foo.age = 20;
+	
+	/* console.log(foo.name);
+	console.log(foo.age);
+	 */
+	
+	 //2.
+	   //객체생성
+	 var foo2 = {
+			 name: '이승엽',
+			 age: 42,
+			 display: function(){
+				 console.log(this.name);
+			 }
+	 };
+	 
+	/* foo2.display();  */
+	
+	//함수도 객체이다
+/* 	function add(x,y){
+		return x+y;
+	}
+
+	add.result = add(20, 30);
+	add.status = 'ok';
+	
+	console.log(add.result);
+	console.log(add.status);
+	 */
+	//퀴즈 리터럴형식으로 객체를 생성 후 동적인 프로퍼티와 메소드를 등록 후 호출하는 예제
+	
+    	var location =  {
+	 name: '가산',
+	 city: '서울',
+	 display1: function(){
+		 console.log(this.name + this.city);
+		
+	 }
+	};
+	location.display1(); 
+	   
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//생성자 함수 기반 객체생성
+	
+	function grade(kor, eng, mat){
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+	}
+	
+	function student(name, grade){
+		this.name = name;
+		this.grade = grade;
+		 this.sum = function(){
+				return (this.grade.kor + this.grade.eng + this.grade.mat) ;
+		 }
+		 this.avr = function(){
+				return (this.grade.kor + this.grade.eng + this.grade.mat) /3 ;
+		 }
+		 this.toString =  function(){
+					return  this.name + "\t" + this.grade.kor + "\t"  +  this.grade.eng  + "\t" + this.grade.mat + 
+					"\t" +"총점"+ this.sum() + "\t"+ "평균" +this.avr();
+				}
+	}
+
+	//배열
+	var students = [];
+	students.push(new student('홍길동', new grade(20, 30, 50)));
+	students.push(new student('이승엽', new grade(60, 70, 80)));
+	
+	/* var sum = function(){
+		return (students[i].grade.kor + students[i].grade.eng + students[i].grade.mat) ;
+} */
+
+
+	//i는 인텍스가 넘어옴
+	for(var i in students){
+		document.write(students[i].toString()+"\t" +   "<br>");
+	}
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

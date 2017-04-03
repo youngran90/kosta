@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	function Rectangle(w, h){
+		var width = w;
+		var height = h;
+		
+		this.setWidth = function(w){
+			if(w<0){
+				throw "길이는 음수일 수 없습니다";
+			} else{
+				width = w;
+			}
+		}
+		
+		this.getWidth = function(){
+			return width;
+		}
+		
+		this.setHeight = function(h){
+			if(h<0){
+				throw "길이는 음수일 수 없습니다";
+			}else{
+				height = h;
+			}
+		}
+		
+			this.getHeight = function(){
+				return height;
+			}
+		}
+	
+	
+		Rectangle.prototype.getArea = function(){
+			return this.getWidth()* this.getHeight();
+		}
+		
+		Rectangle.prototype.toString = function(){
+			console.log(this.getArea());
+			
+		}
+		
+	/* 	var r = new Rectangle(4, 5);
+		r.setWidth(7);
+		
+		r.toString();
+		 */
+		 
+		
+		 //자바스크립스 상속
+		 //1. 부모의 생성자를 자식에게 호출
+		 //2. 자식의 프로토타입에 부모의 프로토타입을 대입
+		 
+			function Square(length){
+				 this.base = Rectangle;
+				 this.base(length, length); //부모의 생성자함수 호출
+				 
+			 }
+		
+		 	Square.prototype = Rectangle.prototype;
+		 	Square.prototype.constructor = Square;
+		 	
+		 	var Square = new Square(5);
+		 	Square.toString();
+		 	
+</script>
+</body>
+</html>

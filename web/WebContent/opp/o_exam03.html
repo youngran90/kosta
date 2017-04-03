@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function student(name, kor, eng, mat){
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+	}
+	
+	//student.prototype.getSum(){};
+
+	student.prototype = {
+			getSum : function(){
+				return this.kor + this.eng + this.mat;
+			},
+			getAvr : function(){
+				return this.getSum()/3;
+			},
+			toString :  function(){
+				return this.name + "\t" + this.getSum() + "\t" + this.getAvr();
+			}
+	};
+
+	var students = [];
+	students.push(new student('홍길동', 20, 30, 50));
+	students.push(new student('이승엽', 60, 70, 80));
+	
+	for(var i in students){
+		document.write(students[i].toString() +   "<br>");
+	}
+	 
+</script>
+</head>
+<body>
+
+</body>
+</html>
