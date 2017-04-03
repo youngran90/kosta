@@ -7,6 +7,7 @@ $(function(){
 		}
 	}).change(function(){
 		var totalcost = 0;
+		var totalquantity = 0;
 		var total = 0;
 
 		$('table tbody tr').each(function(){
@@ -16,22 +17,31 @@ $(function(){
 			var quantity = parseInt($(this).find('.quantity input').val());
 			quantity = isNaN(quantity) ? 0 : quantity;
 			
+			
+			//각 합계
 			 var cost = quantity*price;
 			$(this).find('.cost').text('$' + cost.toFixed(2));
 			
+			//총합계
 			totalcost +=  cost;
 			$('.subtotal> .cost').text('$' + totalcost.toFixed(2));
 			
+			//세금
 			var tax = parseInt($('.tax> .price').text())*0.01;
 			$('.tax> .cost').text('$' + (totalcost*tax).toFixed(2))
 			
-			total += quantity;
-			$('.shipping').find('.quantity').text(total);
+			//총 갯수
+			totalquantity += quantity;
+			$('.shipping').find('.quantity').text(totalquantity);
 			
-			var shippingPrice = parseInt($('.shipping> .price').text());
-			alert( shippingPrice);
+			//배송비
+			$('.shipping').find('.cost').text('$'+ totalquantity*2);
+			
+			//총합
+			total = totalcost + (totalcost*tax) + (totalquantity*2);
+			$('.total').find('.cost').text('$'+total.toFixed(2));
 		})
-		
+			
 	
 	
 
